@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d16020cevmxnf"]
+
+[ext_resource type="Texture2D" uid="uid://cxxiaopyyltmw" path="res://physics project/sprite_player.png" id="1_3ghsj"]
+[ext_resource type="Script" path="res://Scene/player_body.gd" id="1_wjgs7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4ko"]
+size = Vector2(80, 80)
+
+[node name="Player_Body" type="RigidBody2D"]
+mass = 4.0
+linear_damp = 1.0
+script = ExtResource("1_wjgs7")
+
+[node name="SpritePlayer" type="Sprite2D" parent="."]
+texture = ExtResource("1_3ghsj")
+
+[node name="Player_Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ix4ko")

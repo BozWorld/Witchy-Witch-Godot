@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1rxwp216chei"]
+
+[ext_resource type="PackedScene" uid="uid://dtp3s6y5nj2vc" path="res://Scene/ForcePlayer.tscn" id="1_5hjqu"]
+[ext_resource type="Script" path="res://Scene/Physics_Handlers.gd" id="1_nxw30"]
+
+[sub_resource type="Curve2D" id="Curve2D_inefc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 496, 0, 0, 0, 0, 496, 496)
+}
+point_count = 2
+
+[node name="Learning forces" type="Node2D" node_paths=PackedStringArray("spawn_location", "SpawnTimer")]
+script = ExtResource("1_nxw30")
+player_scene = ExtResource("1_5hjqu")
+spawn_location = NodePath("spawn_obj/spawn_location")
+SpawnTimer = NodePath("SpawnTimer")
+
+[node name="spawn_obj" type="Path2D" parent="."]
+curve = SubResource("Curve2D_inefc")
+
+[node name="spawn_location" type="PathFollow2D" parent="spawn_obj"]
+position = Vector2(0, 496)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

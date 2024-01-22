@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd2yqvkkjr7mw"]
+
+[ext_resource type="Script" path="res://Physics_Engine.gd" id="1_vu20j"]
+[ext_resource type="Texture2D" uid="uid://bqqwspgy488p2" path="res://physics project/Crate.png" id="2_b0bc1"]
+[ext_resource type="Script" path="res://Scene/onlyPhysics/Crate.gd" id="3_hp1o6"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vu20j")
+
+[node name="Crate" type="Sprite2D" parent="."]
+position = Vector2(224, 216)
+texture = ExtResource("2_b0bc1")
+script = ExtResource("3_hp1o6")

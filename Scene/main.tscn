@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://t1q65wpxe8h3"]
+
+[ext_resource type="Script" path="res://Scene/main.gd" id="1_dpc7f"]
+[ext_resource type="PackedScene" uid="uid://d16020cevmxnf" path="res://Scene/player_body.tscn" id="1_mhiy0"]
+[ext_resource type="PackedScene" uid="uid://ci8a8udcxs6d6" path="res://Scene/crate.tscn" id="3_i6ky2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_dpc7f")
+
+[node name="Player_Body" parent="." instance=ExtResource("1_mhiy0")]
+position = Vector2(574, 34)
+gravity_scale = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 323)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="velocity" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_bottom = 26.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Velocity : "
+text_direction = 1
+
+[node name="mass" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 52.0
+offset_bottom = 78.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "mass : "
+
+[node name="Angular Drag" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 26.0
+offset_bottom = 52.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "AngularDrag : "
+
+[node name="force" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_top = 78.0
+offset_bottom = 104.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Force : "
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_i6ky2")]
+position = Vector2(304, 357)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("3_i6ky2")]
+position = Vector2(335, 485)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("3_i6ky2")]
+position = Vector2(515, 431)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("3_i6ky2")]
+position = Vector2(553, 318)
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("3_i6ky2")]
+position = Vector2(383, 431)
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("3_i6ky2")]
+position = Vector2(422, 335)

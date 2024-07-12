@@ -1,12 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://t1q65wpxe8h3"]
+[gd_scene load_steps=7 format=3 uid="uid://t1q65wpxe8h3"]
 
 [ext_resource type="Script" path="res://script/manager/main.gd" id="1_dpc7f"]
 [ext_resource type="PackedScene" uid="uid://c7mls0fxcr31r" path="res://Scene/player_body.tscn" id="1_mhiy0"]
 [ext_resource type="PackedScene" uid="uid://ci8a8udcxs6d6" path="res://Scene/obj/crate.tscn" id="3_i6ky2"]
-[ext_resource type="Texture2D" uid="uid://dfo6cfknr1f2n" path="res://assets/background/Background_ColorSwap-export.png" id="4_tdvya"]
+[ext_resource type="Texture2D" uid="uid://ds2k2iiby32wn" path="res://assets/background/BG_WitchWitchng.png" id="4_vhf1k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pc17"]
+texture = ExtResource("4_vhf1k")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_un478"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_8pc17")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dpc7f")
+
+[node name="Player_Body" parent="." instance=ExtResource("1_mhiy0")]
+position = Vector2(573, 35)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 323)
@@ -80,9 +92,11 @@ position = Vector2(383, 431)
 position = Vector2(422, 335)
 
 [node name="BackgroundColorSwap-export" type="Sprite2D" parent="."]
+visible = false
 z_index = -5
 position = Vector2(577, 72)
-texture = ExtResource("4_tdvya")
+texture = ExtResource("4_vhf1k")
 
-[node name="Player_Body" parent="." instance=ExtResource("1_mhiy0")]
-position = Vector2(573, 35)
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_un478")
+format = 2

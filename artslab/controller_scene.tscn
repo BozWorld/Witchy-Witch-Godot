@@ -17,6 +17,7 @@ position = Vector2(313, 169)
 motion_mode = 1
 script = ExtResource("1_76xs3")
 debug = NodePath("../Label")
+_max_speed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
 shape = SubResource("CircleShape2D_2to6n")

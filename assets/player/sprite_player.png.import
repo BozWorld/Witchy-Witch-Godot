@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqqwspgy488p2"
-path="res://.godot/imported/Crate.png-1521dc2884bb59b2ffee5b3be1673119.ctex"
+uid="uid://cxxiaopyyltmw"
+path="res://.godot/imported/sprite_player.png-b3217f9eb39180d2b49a13b8cad2f9e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://physics project/Crate.png"
-dest_files=["res://.godot/imported/Crate.png-1521dc2884bb59b2ffee5b3be1673119.ctex"]
+source_file="res://assets/player/sprite_player.png"
+dest_files=["res://.godot/imported/sprite_player.png-b3217f9eb39180d2b49a13b8cad2f9e6.ctex"]
 
 [params]
 

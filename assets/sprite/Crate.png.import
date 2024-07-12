@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjr6321uq3jef"
-path="res://.godot/imported/Grande_Tilesheet.png-7f2d96ae09c611deba4c6f14326cdd62.ctex"
+uid="uid://bqqwspgy488p2"
+path="res://.godot/imported/Crate.png-3719469c8c0651d7aa1610ee004bc861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://physics project/Grande_Tilesheet.png"
-dest_files=["res://.godot/imported/Grande_Tilesheet.png-7f2d96ae09c611deba4c6f14326cdd62.ctex"]
+source_file="res://assets/sprite/Crate.png"
+dest_files=["res://.godot/imported/Crate.png-3719469c8c0651d7aa1610ee004bc861.ctex"]
 
 [params]
 

@@ -17,3 +17,4 @@ func _process(delta):
 	massLab.text =  "mass : " + str( player.mass )
 	AngularLab.text = "AngularDamp : " + str( player.angular_damp )
 	forceLab.text = "force : " + str( player.hit_force)
+	 

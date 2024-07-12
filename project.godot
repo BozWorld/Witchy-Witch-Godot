@@ -18,9 +18,11 @@ config/icon="res://assets/UI/icon.svg"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=384
+window/size/viewport_height=216
+window/size/mode=2
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -37,3 +39,4 @@ speed={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.850031, 0.855439, 1, 1)

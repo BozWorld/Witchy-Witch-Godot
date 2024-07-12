@@ -1,23 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmhx0w651v6me"]
+[gd_scene load_steps=8 format=3 uid="uid://dmhx0w651v6me"]
 
 [ext_resource type="Script" path="res://artslab/scripts/Jugador.gd" id="1_76xs3"]
 [ext_resource type="Texture2D" uid="uid://c0opxd3vxu4vd" path="res://assets/UI/icon.svg" id="2_vwey8"]
-[ext_resource type="Texture2D" uid="uid://bqqwspgy488p2" path="res://assets/sprite/Crate.png" id="3_lgkdr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_20hji"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s4044"]
+width = 216
+height = 216
+noise = SubResource("FastNoiseLite_20hji")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mxgfj"]
+b = Vector2(0, 216)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_w3ho8"]
+b = Vector2(216, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2to6n"]
-radius = 9.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1vux"]
-size = Vector2(50, 50)
+radius = 7.0
 
 [node name="ControllerScene" type="Node2D"]
 
+[node name="arena" type="Sprite2D" parent="."]
+position = Vector2(266, 108)
+texture = SubResource("NoiseTexture2D_s4044")
+
+[node name="Wall" type="StaticBody2D" parent="arena"]
+position = Vector2(-108, -108)
+
+[node name="Left" type="CollisionShape2D" parent="arena/Wall"]
+shape = SubResource("SegmentShape2D_mxgfj")
+
+[node name="Right" type="CollisionShape2D" parent="arena/Wall"]
+position = Vector2(216, 0)
+shape = SubResource("SegmentShape2D_mxgfj")
+
+[node name="Top" type="CollisionShape2D" parent="arena/Wall"]
+shape = SubResource("SegmentShape2D_w3ho8")
+
+[node name="Moi" type="CollisionShape2D" parent="arena/Wall"]
+position = Vector2(0, 216)
+shape = SubResource("SegmentShape2D_w3ho8")
+
 [node name="Jugador" type="CharacterBody2D" parent="." node_paths=PackedStringArray("debug")]
-position = Vector2(313, 169)
+position = Vector2(224, 150)
 motion_mode = 1
 script = ExtResource("1_76xs3")
 debug = NodePath("../Label")
-_max_speed = 300.0
+_current_speed = 800.0
+_max_speed = 250.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
 shape = SubResource("CircleShape2D_2to6n")
@@ -29,12 +60,3 @@ texture = ExtResource("2_vwey8")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "dsa"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(170, 204)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_g1vux")
-
-[node name="Polygon2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("3_lgkdr")

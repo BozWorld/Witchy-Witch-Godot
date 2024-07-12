@@ -10,6 +10,7 @@ var text: String
 var _direction: Vector2 = Vector2(1,0)
 var _momentum: Vector2 = Vector2(1,0)
 var dot: float
+var _is_dashing: bool = false
 
 func _process(delta):
 	text = ""
@@ -31,4 +32,5 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	RayCast2D
 	move_and_slide()

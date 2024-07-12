@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmhx0w651v6me"]
+
+[ext_resource type="Texture2D" uid="uid://cxxiaopyyltmw" path="res://physics project/sprite_player.png" id="1_1jrwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2to6n"]
+
+[node name="ControllerScene" type="Node2D"]
+
+[node name="Jugador" type="CharacterBody2D" parent="."]
+position = Vector2(382, 360)
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
+shape = SubResource("CircleShape2D_2to6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jugador"]
+texture = ExtResource("1_1jrwf")

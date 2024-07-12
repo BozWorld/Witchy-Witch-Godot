@@ -18,10 +18,16 @@ config/icon="res://icon.svg"
 
 [display]
 
+<<<<<<< HEAD
 window/size/viewport_width=384
 window/size/viewport_height=216
 window/size/mode=2
+window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+=======
+window/size/viewport_width=800
+window/size/viewport_height=800
+>>>>>>> 7426c78b175e5abc50681d87028b2f8045aed159
 
 [input]
 
@@ -38,4 +44,8 @@ speed={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+<<<<<<< HEAD
 environment/defaults/default_clear_color=Color(0.850031, 0.855439, 1, 1)
+=======
+renderer/rendering_method="mobile"
+>>>>>>> 7426c78b175e5abc50681d87028b2f8045aed159

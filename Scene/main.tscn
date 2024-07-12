@@ -1,16 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://t1q65wpxe8h3"]
 
 [ext_resource type="Script" path="res://script/manager/main.gd" id="1_dpc7f"]
-[ext_resource type="PackedScene" uid="uid://d16020cevmxnf" path="res://script/player/player_body.tscn" id="1_mhiy0"]
+[ext_resource type="PackedScene" uid="uid://c7mls0fxcr31r" path="res://Scene/player_body.tscn" id="1_mhiy0"]
 [ext_resource type="PackedScene" uid="uid://ci8a8udcxs6d6" path="res://Scene/obj/crate.tscn" id="3_i6ky2"]
 [ext_resource type="Texture2D" uid="uid://dfo6cfknr1f2n" path="res://assets/background/Background_ColorSwap-export.png" id="4_tdvya"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dpc7f")
-
-[node name="Player_Body" parent="." instance=ExtResource("1_mhiy0")]
-position = Vector2(574, 34)
-gravity_scale = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 323)
@@ -87,3 +83,6 @@ position = Vector2(422, 335)
 z_index = -5
 position = Vector2(577, 72)
 texture = ExtResource("4_tdvya")
+
+[node name="Player_Body" parent="." instance=ExtResource("1_mhiy0")]
+position = Vector2(573, 35)

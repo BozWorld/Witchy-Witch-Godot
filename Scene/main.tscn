@@ -85,5 +85,5 @@ position = Vector2(422, 335)
 
 [node name="BackgroundColorSwap-export" type="Sprite2D" parent="."]
 z_index = -5
-position = Vector2(577, 75)
+position = Vector2(577, 72)
 texture = ExtResource("4_tdvya")

@@ -1,22 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7mls0fxcr31r"]
+[gd_scene load_steps=8 format=3 uid="uid://c7mls0fxcr31r"]
 
-[ext_resource type="Script" path="res://Scene/player_body.gd" id="1_wjgs7"]
 [ext_resource type="Texture2D" uid="uid://by573dg2ethds" path="res://assets/player/Sap_Spritesheet.png" id="2_1rp38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4ko"]
 size = Vector2(16, 16)
 
+[sub_resource type="Animation" id="Animation_40w8f"]
+resource_name = "South"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePlayer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 5, 10, 15]
+}
+
+[sub_resource type="Animation" id="Animation_2b8rg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePlayer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3ve2p"]
+resource_name = "North"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePlayer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 6, 11, 16]
+}
+
+[sub_resource type="Animation" id="Animation_yu1ox"]
+resource_name = "East"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePlayer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 7, 12, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h5iy8"]
+_data = {
+"East": SubResource("Animation_yu1ox"),
+"North": SubResource("Animation_3ve2p"),
+"RESET": SubResource("Animation_2b8rg"),
+"South": SubResource("Animation_40w8f")
+}
+
 [node name="Player_Body" type="RigidBody2D"]
 mass = 4.0
 linear_damp = 1.0
-script = ExtResource("1_wjgs7")
 
 [node name="SpritePlayer" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_1rp38")
 hframes = 5
 vframes = 4
-frame = 2
 
 [node name="Player_Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ix4ko")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h5iy8")
+}

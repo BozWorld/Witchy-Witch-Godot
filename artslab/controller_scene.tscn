@@ -49,6 +49,8 @@ script = ExtResource("1_76xs3")
 debug = NodePath("../Label")
 _current_speed = 800.0
 _max_speed = 250.0
+_friction = null
+_modifier = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
 shape = SubResource("CircleShape2D_2to6n")

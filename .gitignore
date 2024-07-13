@@ -13,3 +13,8 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+/addons/Asset_Drawer/AssetDrawerShortcut.tres
+/addons/Asset_Drawer/FileSystem.gd
+/addons/Asset_Drawer/LICENSE
+/addons/Asset_Drawer/plugin.cfg

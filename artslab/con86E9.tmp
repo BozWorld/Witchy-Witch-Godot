@@ -38,18 +38,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [2, 7, 12, 17]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_k8u2e"]
 resource_name = "North"
@@ -83,18 +71,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [3, 8, 13, 18]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_y6n51"]
@@ -185,18 +161,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 9, 14, 19]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_o5u8j"]
@@ -307,7 +271,7 @@ position = Vector2(315, 160)
 motion_mode = 1
 script = ExtResource("1_76xs3")
 debug = NodePath("../Label")
-anim_player = NodePath("AnimationPlayer")
+anim_player = NodePath("Sprite2D/AnimationPlayer")
 _base_speed = 800.0
 _max_speed = 250.0
 _dashing_friction = 1500.0
@@ -323,9 +287,8 @@ texture = ExtResource("2_i5jcx")
 flip_h = true
 hframes = 5
 vframes = 4
-frame = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Jugador"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jugador/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_u2jn1")
 }

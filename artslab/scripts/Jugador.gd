@@ -5,6 +5,8 @@ extends CharacterBody2D
 var _debug_text: String
 #endregion
 
+@export var anim_player: AnimationPlayer
+
 #region Movement variables
 var _speed: float
 @export var _base_speed: float = 1000
@@ -60,6 +62,7 @@ func _process(delta):
 	
 	velocity = _momentum
 	_cooldowns(delta)
+	_turn_sprite()
 	
 	#region Debugging
 	_debug_text += "dot = " + str(snapped(dot, 0.1))
@@ -73,6 +76,43 @@ func _process(delta):
 func _physics_process(delta):
 	RayCast2D
 	move_and_slide()
+
+func _turn_sprite():
+	if _momentum.length() < 4:
+		return
+	var dotdown = Vector2(0,1).dot(_momentum.normalized())
+	var dotright = Vector2(1,0).dot(_momentum.normalized())
+	
+	_debug_text += "\n"+str(snapped(dotdown,0.001)) + ", " + str(snapped(dotright,0.001))
+	
+	
+	if dotdown > 0.9:
+		anim_player.play("South")
+		return
+	if dotdown < -0.9:
+		anim_player.play("North")
+		return
+	if dotright > 0.9:
+		anim_player.play("East")
+		return
+	if dotright < -0.9:
+		anim_player.play("West")
+		return
+		
+	if dotdown > 0.3333:
+		if dotright > 0:
+			anim_player.play("South_East")
+			return
+		else:
+			anim_player.play("South_West")
+			return
+	if dotdown < 0.3333:
+		if dotright > 0:
+			anim_player.play("North_East")
+			return
+		else:
+			anim_player.play("North_West")
+			return
 
 func _move(delta):
 	if _dash_cd > 0:

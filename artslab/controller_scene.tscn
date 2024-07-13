@@ -273,7 +273,6 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_cdy41"]
 line_spacing = -4.0
 font_size = 14
-font_color = Color(0.954294, 0.344205, 0, 1)
 
 [node name="ControllerScene" type="Node2D"]
 

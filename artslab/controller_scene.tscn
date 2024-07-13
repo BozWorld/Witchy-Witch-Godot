@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmhx0w651v6me"]
+[gd_scene load_steps=19 format=3 uid="uid://dmhx0w651v6me"]
 
 [ext_resource type="Script" path="res://artslab/scripts/Jugador.gd" id="1_76xs3"]
-[ext_resource type="Texture2D" uid="uid://c0opxd3vxu4vd" path="res://assets/UI/icon.svg" id="2_vwey8"]
+[ext_resource type="Texture2D" uid="uid://by573dg2ethds" path="res://assets/player/Sap_Spritesheet.png" id="2_i5jcx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_20hji"]
 
@@ -18,6 +18,218 @@ b = Vector2(270, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2to6n"]
 radius = 7.0
+
+[sub_resource type="Animation" id="Animation_83v3j"]
+resource_name = "East"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 7, 12, 17]
+}
+
+[sub_resource type="Animation" id="Animation_5hbex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k8u2e"]
+resource_name = "North"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 6, 11, 16]
+}
+
+[sub_resource type="Animation" id="Animation_xsva6"]
+resource_name = "South"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 5, 10, 15]
+}
+
+[sub_resource type="Animation" id="Animation_x8xyd"]
+resource_name = "West"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 7, 12, 17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_j5bjt"]
+resource_name = "South_East"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 9, 14, 19]
+}
+
+[sub_resource type="Animation" id="Animation_o5u8j"]
+resource_name = "South_West"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 9, 14, 19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qx5b2"]
+resource_name = "North_East"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 8, 13, 18]
+}
+
+[sub_resource type="Animation" id="Animation_y6n51"]
+resource_name = "North_West"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 8, 13, 18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2jn1"]
+_data = {
+"East": SubResource("Animation_83v3j"),
+"North": SubResource("Animation_k8u2e"),
+"North_East": SubResource("Animation_qx5b2"),
+"North_West": SubResource("Animation_y6n51"),
+"RESET": SubResource("Animation_5hbex"),
+"South": SubResource("Animation_xsva6"),
+"South_East": SubResource("Animation_j5bjt"),
+"South_West": SubResource("Animation_o5u8j"),
+"West": SubResource("Animation_x8xyd")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_cdy41"]
 line_spacing = -4.0
@@ -64,7 +276,16 @@ _dash_base_strength = 600.0
 shape = SubResource("CircleShape2D_2to6n")
 
 [node name="Sprite2D" type="Sprite2D" parent="Jugador"]
-texture = ExtResource("2_vwey8")
+texture = ExtResource("2_i5jcx")
+flip_h = true
+hframes = 5
+vframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jugador"]
+libraries = {
+"": SubResource("AnimationLibrary_u2jn1")
+}
 
 [node name="Label" type="Label" parent="."]
 offset_left = 4.0

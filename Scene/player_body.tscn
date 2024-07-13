@@ -85,6 +85,7 @@ linear_damp = 1.0
 
 [node name="SpritePlayer" type="Sprite2D" parent="."]
 texture_filter = 1
+rotation = -6.28319
 texture = ExtResource("2_1rp38")
 hframes = 5
 vframes = 4

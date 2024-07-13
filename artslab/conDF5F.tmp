@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmhx0w651v6me"]
+[gd_scene load_steps=8 format=3 uid="uid://dmhx0w651v6me"]
 
 [ext_resource type="Script" path="res://artslab/scripts/Jugador.gd" id="1_76xs3"]
 [ext_resource type="Texture2D" uid="uid://c0opxd3vxu4vd" path="res://assets/UI/icon.svg" id="2_vwey8"]
@@ -6,59 +6,51 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_20hji"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s4044"]
-width = 270
-height = 270
+width = 216
+height = 216
 noise = SubResource("FastNoiseLite_20hji")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mxgfj"]
-b = Vector2(0, 270)
+b = Vector2(0, 216)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_w3ho8"]
-b = Vector2(270, 0)
+b = Vector2(216, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2to6n"]
 radius = 7.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_cdy41"]
-line_spacing = -4.0
-font_size = 14
-font_color = Color(0.954294, 0.344205, 0, 1)
-
 [node name="ControllerScene" type="Node2D"]
 
 [node name="arena" type="Sprite2D" parent="."]
-position = Vector2(345, 135)
+position = Vector2(276, 108)
 texture = SubResource("NoiseTexture2D_s4044")
 
 [node name="Wall" type="StaticBody2D" parent="arena"]
 position = Vector2(-108, -108)
 
 [node name="Left" type="CollisionShape2D" parent="arena/Wall"]
-position = Vector2(-28, -27)
 shape = SubResource("SegmentShape2D_mxgfj")
 
 [node name="Right" type="CollisionShape2D" parent="arena/Wall"]
-position = Vector2(244, -27)
+position = Vector2(216, 0)
 shape = SubResource("SegmentShape2D_mxgfj")
 
 [node name="Top" type="CollisionShape2D" parent="arena/Wall"]
-position = Vector2(-27, -28)
 shape = SubResource("SegmentShape2D_w3ho8")
 
 [node name="Moi" type="CollisionShape2D" parent="arena/Wall"]
-position = Vector2(-28, 244)
+position = Vector2(0, 216)
 shape = SubResource("SegmentShape2D_w3ho8")
 
 [node name="Jugador" type="CharacterBody2D" parent="." node_paths=PackedStringArray("debug")]
-position = Vector2(315, 160)
+position = Vector2(224, 150)
 motion_mode = 1
 script = ExtResource("1_76xs3")
 debug = NodePath("../Label")
+_current_speed = 800.0
 _max_speed = 250.0
-_dashing_friction = 1000.0
-_dash_max_stacks = 8
-_dash_max_cd = 0.35
-_dash_base_strength = 600.0
+_friction = null
+_modifier = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
 shape = SubResource("CircleShape2D_2to6n")
@@ -67,11 +59,6 @@ shape = SubResource("CircleShape2D_2to6n")
 texture = ExtResource("2_vwey8")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 4.0
-offset_right = 44.0
-offset_bottom = 52.0
-text = "dsa
-dsa
-dsa
-"
-label_settings = SubResource("LabelSettings_cdy41")
+offset_right = 40.0
+offset_bottom = 23.0
+text = "dsa"

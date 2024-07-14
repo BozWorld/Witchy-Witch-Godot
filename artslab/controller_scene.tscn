@@ -333,8 +333,4 @@ libraries = {
 offset_left = 4.0
 offset_right = 44.0
 offset_bottom = 52.0
-text = "dsa
-dsa
-dsa
-"
 label_settings = SubResource("LabelSettings_cdy41")

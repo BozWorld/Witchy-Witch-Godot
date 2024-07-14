@@ -72,6 +72,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _debug():
+	if debug == null:
+		return
 	_debug_text += "dot = " + str(snapped(dot, 0.1))
 	_debug_text += "\nmomentum = " + str(snapped(_momentum.x, 0.1)) + ", " + str(snapped(_momentum.y, 0.1))
 	_debug_text += "\nspeed = " + str(snapped(_momentum.length(), 0.1))

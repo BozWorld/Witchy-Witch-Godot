@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://uke35mjwgb36"]
+
+[ext_resource type="Script" path="res://script/NPC/enemy.gd" id="1_b8ymi"]
+[ext_resource type="Texture2D" uid="uid://bqqwspgy488p2" path="res://assets/sprite/Crate.png" id="2_brpvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mal8w"]
+size = Vector2(74, 62.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t6yl"]
+size = Vector2(50, 50)
+
+[node name="EnemyBase" type="Area2D"]
+script = ExtResource("1_b8ymi")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_brpvx")
+
+[node name="PlayerHurtbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 0.125)
+shape = SubResource("RectangleShape2D_mal8w")
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_8t6yl")
+debug_color = Color(0.980563, 0, 0.37861, 0.42)
+
+[node name="Timer" type="Timer" parent="."]

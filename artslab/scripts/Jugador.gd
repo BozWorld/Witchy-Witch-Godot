@@ -13,7 +13,7 @@ var _speed: float
 @export var _max_speed: float = 500
 @export var _friction: float = 400
 @export var _dashing_friction: float = 700
-@export var _modifier: float = 2
+#@export var _modifier: float = 2
 var _direction: Vector2 = Vector2(1,0)
 var _momentum: Vector2 = Vector2(1,0)
 #var dot: float

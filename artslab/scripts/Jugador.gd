@@ -13,10 +13,10 @@ var _speed: float
 @export var _max_speed: float = 500
 @export var _friction: float = 400
 @export var _dashing_friction: float = 700
-@export var _modifier: float = 2
+#@export var _modifier: float = 2
 var _direction: Vector2 = Vector2(1,0)
 var _momentum: Vector2 = Vector2(1,0)
-var dot: float
+#var dot: float
 #endregion
 
 #region Dashing variables
@@ -74,7 +74,7 @@ func _physics_process(delta):
 func _debug():
 	if debug == null:
 		return
-	_debug_text += "dot = " + str(snapped(dot, 0.1))
+	#_debug_text += "dot = " + str(snapped(dot, 0.1))
 	_debug_text += "\nmomentum = " + str(snapped(_momentum.x, 0.1)) + ", " + str(snapped(_momentum.y, 0.1))
 	_debug_text += "\nspeed = " + str(snapped(_momentum.length(), 0.1))
 	_debug_text += "\ndirection = " + str(snapped(_direction.x, 0.1)) + ", " + str(snapped(_direction.y, 0.1))
@@ -126,7 +126,7 @@ func _move(delta):
 	_direction = get_global_mouse_position() - global_position
 	if _direction.length() < 4:
 		return
-	dot = clampf(_modifier - _direction.dot(velocity.normalized()) * (_modifier-1), 0,99999)
+	#dot = clampf(_modifier - _direction.dot(velocity.normalized()) * (_modifier-1), 0,99999)
 	_momentum += _direction.normalized() * _speed * delta
 
 func _dash():

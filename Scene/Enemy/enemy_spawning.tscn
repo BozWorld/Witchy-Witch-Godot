@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b64bib8fahaep"]
+
+[ext_resource type="Script" path="res://Scene/Enemy/enemy_spawning.gd" id="1_ntlgf"]
+[ext_resource type="PackedScene" uid="uid://uke35mjwgb36" path="res://Scene/Enemy/enemy_base.tscn" id="2_hw4yk"]
+
+[node name="enemySpawning" type="Node2D"]
+script = ExtResource("1_ntlgf")
+mob_scene = ExtResource("2_hw4yk")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(68, 46)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(68, 193)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(371, 204)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(370, 46)

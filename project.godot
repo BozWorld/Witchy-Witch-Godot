@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-flowerwall_pp_autoload="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
@@ -30,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 

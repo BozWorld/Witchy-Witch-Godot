@@ -60,22 +60,26 @@ func _process(delta):
 		var clamped_speed: float = clampf(_momentum.length(), 0, _max_speed)
 		_momentum = _momentum.normalized() * (clamped_speed - _friction * delta)
 	
+	if _momentum.length() < 4 and _dash_cd <=0 and _direction.length() < 4 :
+		_momentum = Vector2(0,0)
+	
 	velocity = _momentum
 	_cooldowns(delta)
 	_turn_sprite()
-	
-	#region Debugging
+
+func _physics_process(delta):
+	_debug()
+	move_and_slide()
+
+func _debug():
 	_debug_text += "dot = " + str(snapped(dot, 0.1))
 	_debug_text += "\nmomentum = " + str(snapped(_momentum.x, 0.1)) + ", " + str(snapped(_momentum.y, 0.1))
 	_debug_text += "\nspeed = " + str(snapped(_momentum.length(), 0.1))
+	_debug_text += "\ndirection = " + str(snapped(_direction.x, 0.1)) + ", " + str(snapped(_direction.y, 0.1))
 	_debug_text += "\ndashes = " + str(_dash_stacks)
 	_debug_text += "\nis dashing = " + str(_dash_cd>0)
+	
 	debug.text = _debug_text
-#endregion
-
-func _physics_process(delta):
-	RayCast2D
-	move_and_slide()
 
 func _turn_sprite():
 	if _momentum.length() < 4:
@@ -83,7 +87,7 @@ func _turn_sprite():
 	var dotdown = Vector2(0,1).dot(_momentum.normalized())
 	var dotright = Vector2(1,0).dot(_momentum.normalized())
 	
-	_debug_text += "\n"+str(snapped(dotdown,0.001)) + ", " + str(snapped(dotright,0.001))
+	#_debug_text += "\n"+str(snapped(dotdown,0.001)) + ", " + str(snapped(dotright,0.001))
 	
 	
 	if dotdown > 0.9:

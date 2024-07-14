@@ -117,9 +117,11 @@ func _turn_sprite():
 func _move(delta):
 	if _dash_cd > 0:
 		return
-	_direction = global_position.direction_to(get_global_mouse_position())
+	_direction = get_global_mouse_position() - global_position
+	if _direction.length() < 4:
+		return
 	dot = clampf(_modifier - _direction.dot(velocity.normalized()) * (_modifier-1), 0,99999)
-	_momentum += _direction * _speed * delta
+	_momentum += _direction.normalized() * _speed * delta
 
 func _dash():
 	if _dash_cd > 0 or _dash_stacks <1:

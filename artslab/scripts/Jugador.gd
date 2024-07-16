@@ -66,10 +66,11 @@ func _process(delta):
 	velocity = _momentum
 	_cooldowns(delta)
 	_turn_sprite()
+	move_and_slide()
 
 func _physics_process(delta):
 	_debug()
-	move_and_slide()
+	#move_and_slide()
 
 func _debug():
 	if debug == null:

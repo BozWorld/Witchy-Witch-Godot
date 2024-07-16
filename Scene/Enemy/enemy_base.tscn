@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://uke35mjwgb36"]
+[gd_scene load_steps=6 format=3 uid="uid://uke35mjwgb36"]
 
 [ext_resource type="Script" path="res://script/NPC/enemy.gd" id="1_b8ymi"]
 [ext_resource type="Texture2D" uid="uid://bqqwspgy488p2" path="res://assets/sprite/Crate.png" id="2_brpvx"]
+[ext_resource type="Texture2D" uid="uid://dq07hd06agflh" path="res://assets/sprite/Square.png" id="3_vlypy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mal8w"]
 size = Vector2(74, 62.25)
@@ -9,20 +10,38 @@ size = Vector2(74, 62.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t6yl"]
 size = Vector2(50, 50)
 
-[node name="EnemyBase" type="Area2D"]
+[node name="EnemyBase" type="Area2D" node_paths=PackedStringArray("coll", "cooldown", "activeFrames")]
 script = ExtResource("1_b8ymi")
+coll = NodePath("PlayerHurtbox")
+cooldown = NodePath("Timer")
+activeFrames = NodePath("Timer2")
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_brpvx")
 
+[node name="EnemySprite" type="Sprite2D" parent="EnemySprite"]
+position = Vector2(0, -24.5)
+scale = Vector2(1, 4.0625)
+texture = ExtResource("3_vlypy")
+
 [node name="PlayerHurtbox" type="CollisionShape2D" parent="."]
-visible = false
+show_behind_parent = true
 position = Vector2(0, 0.125)
 shape = SubResource("RectangleShape2D_mal8w")
+disabled = true
+debug_color = Color(0.807843, 0, 0, 0.717647)
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_8t6yl")
 debug_color = Color(0.980563, 0, 0.37861, 0.42)
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

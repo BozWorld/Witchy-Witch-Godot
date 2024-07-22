@@ -6,6 +6,10 @@ var _debug_text: String
 #endregion
 
 @export var anim_player: AnimationPlayer
+@export var line2d: Line2D
+
+@export var points: int = 30
+var currpoint: int = 0
 
 #region Movement variables
 var _speed: float
@@ -70,6 +74,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	_debug()
+	line()
 	#move_and_slide()
 
 func _debug():
@@ -147,3 +152,9 @@ func _cooldowns(delta: float):
 		if _dash_fill_t <= 0:
 			_dash_fill_t = _dash_fillspeed
 			_dash_stacks += 1
+
+func line():
+	line2d.add_point(global_position, currpoint)
+	currpoint += 1
+	if currpoint > points:
+		line2d.remove_point(0)

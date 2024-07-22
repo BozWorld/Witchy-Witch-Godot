@@ -333,7 +333,6 @@ script = ExtResource("1_76xs3")
 debug = NodePath("../CanvasLayer/Label")
 anim_player = NodePath("AnimationPlayer")
 line2d = NodePath("../Line2D")
-points = 200
 _base_speed = 800.0
 _max_speed = 250.0
 _dashing_friction = 1500.0

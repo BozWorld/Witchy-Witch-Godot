@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmhx0w651v6me"]
+[gd_scene load_steps=26 format=3 uid="uid://dmhx0w651v6me"]
 
 [ext_resource type="Script" path="res://artslab/scripts/Jugador.gd" id="1_76xs3"]
 [ext_resource type="Texture2D" uid="uid://ds2k2iiby32wn" path="res://assets/background/BG_WitchWitchng.png" id="1_qrd1a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_qa8it"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_jrkv8"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_j1n4a"]
+[ext_resource type="Script" path="res://artslab/scripts/Line.gd" id="7_fsod2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olj3y"]
 texture = ExtResource("1_qrd1a")
@@ -293,8 +294,8 @@ transition = 0
 ease = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_cdy41"]
-line_spacing = -4.0
-font_size = 14
+line_spacing = -3.0
+font_size = 10
 
 [sub_resource type="Curve" id="Curve_ovp0c"]
 _data = [Vector2(0.457286, 0.24253), 0.0, 0.0, 0, 0]
@@ -333,7 +334,7 @@ script = ExtResource("1_76xs3")
 debug = NodePath("../CanvasLayer/Label")
 anim_player = NodePath("AnimationPlayer")
 line2d = NodePath("../Line2D")
-points = 200
+points = 123
 _base_speed = 800.0
 _max_speed = 250.0
 _dashing_friction = 1500.0
@@ -373,10 +374,16 @@ script = ExtResource("6_j1n4a")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 214.0
-offset_bottom = 151.0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 228.0
+offset_bottom = 161.0
 label_settings = SubResource("LabelSettings_cdy41")
 
 [node name="Line2D" type="Line2D" parent="."]
 width = 8.34
 width_curve = SubResource("Curve_ovp0c")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("7_fsod2")

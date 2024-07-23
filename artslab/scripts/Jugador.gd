@@ -81,11 +81,11 @@ func _debug():
 	if debug == null:
 		return
 	#_debug_text += "dot = " + str(snapped(dot, 0.1))
-	_debug_text += "\nmomentum = " + str(snapped(_momentum.x, 0.1)) + ", " + str(snapped(_momentum.y, 0.1))
+	_debug_text += "momentum = " + str(snapped(_momentum.x, 0.1)) + ", " + str(snapped(_momentum.y, 0.1))
 	_debug_text += "\nspeed = " + str(snapped(_momentum.length(), 0.1))
 	_debug_text += "\ndirection = " + str(snapped(_direction.x, 0.1)) + ", " + str(snapped(_direction.y, 0.1))
 	_debug_text += "\ndashes = " + str(_dash_stacks)
-	_debug_text += "\nis dashing = " + str(_dash_cd>0)
+	_debug_text += "\nis dashing = " + str(_dash_cd > 0)
 	
 	debug.text = _debug_text
 

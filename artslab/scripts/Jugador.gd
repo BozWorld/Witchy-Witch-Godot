@@ -46,10 +46,8 @@ func _ready():
 	_dash_stacks = _dash_max_stacks
 
 func _process(delta):
-	#reset debug _debug_text
-	_debug_text = ""
-	#reset input direction
-	_direction = Vector2(0,0)
+	_debug_text = ""  #reset debug _debug_text
+	_direction = Vector2(0,0) #reset input direction
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		_dash()

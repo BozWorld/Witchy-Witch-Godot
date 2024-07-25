@@ -19,6 +19,7 @@ var _speed: float
 @export var _dashing_friction: float = 700
 #@export var _modifier: float = 2
 var _direction: Vector2 = Vector2(1,0)
+var _last_direction: Vector2 = Vector2(0,0)
 var _momentum: Vector2 = Vector2(1,0)
 #var dot: float
 #endregion
@@ -47,13 +48,16 @@ func _ready():
 
 func _process(delta):
 	_debug_text = ""  #reset debug _debug_text
+	if _direction != Vector2(0,0):
+		_last_direction = _direction
 	_direction = Vector2(0,0) #reset input direction
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		_dash()
+	read_movement()
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		_move(delta)
+	if Input.is_action_pressed("dash"):
+		dash()
+	
+	move(delta)
 	
 	if _dash_cd > 0:
 		var clamped_speed: float = _momentum.length()
@@ -62,12 +66,12 @@ func _process(delta):
 		var clamped_speed: float = clampf(_momentum.length(), 0, _max_speed)
 		_momentum = _momentum.normalized() * (clamped_speed - _friction * delta)
 	
-	if _momentum.length() < 4 and _dash_cd <=0 and _direction.length() < 4 :
+	if _momentum.length() < 4 and _dash_cd <=0 and _direction.length() < 0.1 :
 		_momentum = Vector2(0,0)
 	
 	velocity = _momentum
-	_cooldowns(delta)
-	_turn_sprite()
+	cooldowns(delta)
+	turn_sprite()
 	move_and_slide()
 
 func _physics_process(delta):
@@ -87,7 +91,7 @@ func _debug():
 	
 	debug.text = _debug_text
 
-func _turn_sprite():
+func turn_sprite():
 	if _momentum.length() < 4:
 		return
 	var dotdown = Vector2(0,1).dot(_momentum.normalized())
@@ -124,24 +128,31 @@ func _turn_sprite():
 			anim_player.play("North_West")
 			return
 
-func _move(delta):
-	if _dash_cd > 0:
-		return
-	_direction = get_global_mouse_position() - global_position
-	if _direction.length() < 4:
-		return
-	#dot = clampf(_modifier - _direction.dot(velocity.normalized()) * (_modifier-1), 0,99999)
-	_momentum += _direction.normalized() * _speed * delta
+func read_movement():
+	var joystick: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if joystick.length() > 0.1:
+		_direction = joystick
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		_direction = get_global_mouse_position() - global_position
+		_direction = _direction.normalized() * clampf(_direction.length(),0,1)
 
-func _dash():
+func move(delta):
+	if _dash_cd > 0 or _direction.length() < 0.1:
+		return
+	_momentum += _direction * _speed * delta
+
+func dash():
 	if _dash_cd > 0 or _dash_stacks <1:
 		return
-	_dash_direction = position.direction_to(get_global_mouse_position())
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		_dash_direction = (get_global_mouse_position() - global_position).normalized()
+	else:
+		_dash_direction = _last_direction.normalized()
 	_momentum = _dash_direction * _dash_strength
 	_dash_stacks -= 1
 	_dash_cd = _dash_max_cd
 
-func _cooldowns(delta: float):
+func cooldowns(delta: float):
 	if _dash_cd > 0:
 		_dash_cd -= delta
 		

@@ -5,11 +5,12 @@ extends CharacterBody2D
 var _debug_text: String
 #endregion
 
+#region line
 @export var anim_player: AnimationPlayer
 @export var line2d: Line2D
-
 @export var points: int = 30
 var currpoint: int = 0
+#endregion
 
 #region Movement variables
 var _speed: float
@@ -63,8 +64,8 @@ func _process(delta):
 		var clamped_speed: float = _momentum.length()
 		_momentum = _momentum.normalized() * (clamped_speed - _dashing_friction * delta)
 	else:
-		var clamped_speed: float = clampf(_momentum.length(), 0, _max_speed * _direction.length())
-		_momentum = _momentum.normalized() * (clamped_speed - _friction * delta * _direction.length())
+		var clamped_speed: float = clampf(_momentum.length(), 0, _max_speed)# * _direction.length())
+		_momentum = _momentum.normalized() * (clamped_speed - _friction * delta)# * _direction.length())
 	
 	if _momentum.length() < 4 and _dash_cd <=0 and _direction.length() < 0.1 :
 		_momentum = Vector2(0,0)

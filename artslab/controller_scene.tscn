@@ -342,17 +342,12 @@ script = ExtResource("7_fsod2")
 
 [node name="Jugador" type="CharacterBody2D" parent="." node_paths=PackedStringArray("debug", "anim_player", "line2d")]
 motion_mode = 1
+wall_min_slide_angle = 0.488692
+floor_constant_speed = true
 script = ExtResource("1_76xs3")
 debug = NodePath("../CanvasLayer/Label")
 anim_player = NodePath("AnimationPlayer")
 line2d = NodePath("../Line2D")
-points = 123
-_base_speed = 800.0
-_max_speed = 250.0
-_dashing_friction = 1500.0
-_dash_max_stacks = 8
-_dash_max_cd = 0.3
-_dash_base_strength = 600.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
 shape = SubResource("CircleShape2D_2to6n")

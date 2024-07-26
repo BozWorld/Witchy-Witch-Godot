@@ -8,16 +8,16 @@ var _debug_text: String
 #region line
 @export var anim_player: AnimationPlayer
 @export var line2d: Line2D
-@export var points: int = 30
+@export var points: int = 150 #length o 
 var currpoint: int = 0
 #endregion
 
 #region Movement variables
-var _speed: float
-@export var _base_speed: float = 1000
-@export var _max_speed: float = 500
-@export var _friction: float = 400
-@export var _dashing_friction: float = 700
+var _acceleration: float
+@export var _base_acceleration: float = 850
+@export var _max_speed: float = 250
+@export var _friction: float = 500
+@export var _dashing_friction: float = 1500
 #@export var _modifier: float = 2
 var _direction: Vector2 = Vector2(1,0)
 var _last_direction: Vector2 = Vector2(0,0)
@@ -30,20 +30,20 @@ var _is_dashing: bool = false
 var _dash_direction: Vector2
 
 var _dash_stacks: int = 0
-@export var _dash_max_stacks: int = 1
+@export var _dash_max_stacks: int = 3
 
 var _dash_cd: float = 0.0
-@export var _dash_max_cd: float = 1.0
+@export var _dash_max_cd: float = 0.32
 
 var _dash_fill_t: float = 2.0
 var _dash_fillspeed: float = 2.0
 
-@export var _dash_base_strength: float = 500.0
+@export var _dash_base_strength: float = 600.0
 var _dash_strength: float = 0.0
 #endregion
 
 func _ready():
-	_speed = _base_speed
+	_acceleration = _base_acceleration
 	_dash_strength = _dash_base_strength
 	_dash_stacks = _dash_max_stacks
 
@@ -86,7 +86,7 @@ func _debug():
 	#_debug_text += "dot = " + str(snapped(dot, 0.1))
 	_debug_text += "momentum = " + str(snapped(_momentum.x, 0.1)) + ", " + str(snapped(_momentum.y, 0.1))
 	_debug_text += "\nspeed = " + str(snapped(_momentum.length(), 0.1))
-	_debug_text += "\ndirection = " + str(snapped(_direction.x, 0.1)) + ", " + str(snapped(_direction.y, 0.1))
+	_debug_text += "\ninput direction = " + str(snapped(_direction.x, 0.1)) + ", " + str(snapped(_direction.y, 0.1))
 	_debug_text += "\ndashes = " + str(_dash_stacks)
 	_debug_text += "\nis dashing = " + str(_dash_cd > 0)
 	
@@ -140,7 +140,7 @@ func read_movement():
 func move(delta):
 	if _dash_cd > 0 or _direction.length() < 0.1:
 		return
-	_momentum += _direction * _speed * delta
+	_momentum += _direction * _acceleration * delta
 
 func dash():
 	if _dash_cd > 0 or _dash_stacks <1:

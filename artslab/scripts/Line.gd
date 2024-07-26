@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 		if _capt_cd > 0:
 			return
 		if points[i].distance_to(points[points.size() -1]) < 2 and i < points.size() - 3:
-			print_debug("yahoo")
+			#print_debug("yahoo")
 			_capt_cd = _capt_max_cd
 
 func _process(delta: float) -> void:

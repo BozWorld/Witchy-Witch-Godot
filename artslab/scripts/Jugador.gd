@@ -42,6 +42,9 @@ var _dash_fillspeed: float = 2.0
 var _dash_strength: float = 0.0
 #endregion
 
+#region external forces
+var fields: Array[Node2D]
+
 func _ready():
 	_acceleration = _base_acceleration
 	_dash_strength = _dash_base_strength

@@ -46,10 +46,11 @@ func _ready():
 	_acceleration = _base_acceleration
 	_dash_strength = _dash_base_strength
 	_dash_stacks = _dash_max_stacks
+	#connect("grav", _on_grav)
 
 func _process(delta):
 	_debug_text = ""  #reset debug _debug_text
-	if _direction != Vector2(0,0):
+	if _direction != Vector2(0,0): #store last direction
 		_last_direction = _direction
 	_direction = Vector2(0,0) #reset input direction
 	
@@ -59,18 +60,9 @@ func _process(delta):
 		dash()
 	
 	move(delta)
-	
-	if _dash_cd > 0:
-		var clamped_speed: float = _momentum.length()
-		_momentum = _momentum.normalized() * (clamped_speed - _dashing_friction * delta)
-	else:
-		var clamped_speed: float = clampf(_momentum.length(), 0, _max_speed)# * _direction.length())
-		_momentum = _momentum.normalized() * (clamped_speed - _friction * delta)# * _direction.length())
-	
-	if _momentum.length() < 4 and _dash_cd <=0 and _direction.length() < 0.1 :
-		_momentum = Vector2(0,0)
-	
+	apply_physics(delta)
 	velocity = _momentum
+	
 	cooldowns(delta)
 	turn_sprite()
 	move_and_slide()
@@ -137,6 +129,17 @@ func read_movement():
 		_direction = (get_global_mouse_position() - global_position) * 0.1
 	_direction = _direction.normalized() * clampf(_direction.length(),0,1)
 
+func apply_physics(delta: float):
+	if _dash_cd > 0: #dashing, applying dashing physics
+		var clamped_speed: float = _momentum.length()
+		_momentum = _momentum.normalized() * (clamped_speed - _dashing_friction * delta)
+	else: #applying normal physics
+		var clamped_speed: float = clampf(_momentum.length(), 0, _max_speed)
+		_momentum = _momentum.normalized() * (clamped_speed - _friction * delta)
+	
+	if _momentum.length() < 4 and _dash_cd <=0 and _direction.length() < 0.1 :
+		_momentum = Vector2(0,0) #snapping momentum to 0 when close to 0 to avoid jittering
+
 func move(delta):
 	if _dash_cd > 0 or _direction.length() < 0.1:
 		return
@@ -168,3 +171,6 @@ func line():
 	currpoint += 1
 	if currpoint > points:
 		line2d.remove_point(0)
+
+#func _on_grav(yahoo: Area2D):
+	#print_debug("gggggggggggggggggggggggg")

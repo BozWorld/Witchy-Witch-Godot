@@ -69,6 +69,7 @@ func _process(delta):
 	cooldowns(delta)
 	turn_sprite()
 	move_and_slide()
+	# global_position = global_position.round()
 
 func _physics_process(delta):
 	_debug()

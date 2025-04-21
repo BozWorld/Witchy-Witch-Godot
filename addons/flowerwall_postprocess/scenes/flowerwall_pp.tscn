@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://cc1fomjf362h5"]
 
-[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_sc4md"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_e65cv"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blur.gdshader" id="3_j385i"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_8ls41"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_h5wqk"]
+[ext_resource type="Script" uid="uid://d061ypeqyyy4l" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_sc4md"]
+[ext_resource type="Shader" uid="uid://bvs5d26a0u7ed" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_e65cv"]
+[ext_resource type="Shader" uid="uid://cqn1qbkcphyrn" path="res://addons/flowerwall_postprocess/shaders/blur.gdshader" id="3_j385i"]
+[ext_resource type="Shader" uid="uid://doyednq6okfg3" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_8ls41"]
+[ext_resource type="Shader" uid="uid://d2qffn2aqlx1g" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_h5wqk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vcmfx"]
 shader = ExtResource("2_e65cv")
@@ -48,8 +48,8 @@ shader_parameter/scanlines_interval = 6.0
 shader_parameter/scanline_opacity = 0.45
 shader_parameter/scanline_thickness = 3.0
 shader_parameter/chromatic_aberration_strength = 3.0
-shader_parameter/wiggle = 0.005
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_qk5sn")
+shader_parameter/wiggle = 0.005
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pilqa"]
 shader = ExtResource("5_h5wqk")

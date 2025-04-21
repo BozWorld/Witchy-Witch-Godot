@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c7mls0fxcr31r"]
 
 [ext_resource type="Texture2D" uid="uid://by573dg2ethds" path="res://assets/player/Sap_Spritesheet.png" id="2_1rp38"]
-[ext_resource type="Script" path="res://Scene/Trail.gd" id="2_8wggb"]
+[ext_resource type="Script" uid="uid://cvndbqe7f7635" path="res://Scene/Trail.gd" id="2_8wggb"]
 [ext_resource type="Texture2D" uid="uid://dq07hd06agflh" path="res://assets/sprite/Square.png" id="3_62evg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4ko"]
@@ -75,10 +75,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h5iy8"]
 _data = {
-"East": SubResource("Animation_yu1ox"),
-"North": SubResource("Animation_3ve2p"),
-"RESET": SubResource("Animation_2b8rg"),
-"South": SubResource("Animation_40w8f")
+&"East": SubResource("Animation_yu1ox"),
+&"North": SubResource("Animation_3ve2p"),
+&"RESET": SubResource("Animation_2b8rg"),
+&"South": SubResource("Animation_40w8f")
 }
 
 [sub_resource type="Curve" id="Curve_4prx8"]

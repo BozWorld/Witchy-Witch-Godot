@@ -12,7 +12,11 @@ config_version=5
 
 config/name="Witch-Mania"
 config/description="Space to learn about physics behavior, mechanics, and 2D calculations."
+<<<<<<< HEAD
 run/main_scene="uid://n388y20a8y2r"
+=======
+run/main_scene="res://artslab/controller_scene.tscn"
+>>>>>>> 4d3ff19 (passage à la 4.4)
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://uke35mjwgb36"]
 
-[ext_resource type="Script" path="res://script/NPC/enemy.gd" id="1_b8ymi"]
+[ext_resource type="Script" uid="uid://ca8ey5jjmct2e" path="res://script/NPC/enemy.gd" id="1_b8ymi"]
 [ext_resource type="Texture2D" uid="uid://bqqwspgy488p2" path="res://assets/sprite/Crate.png" id="2_brpvx"]
 [ext_resource type="Texture2D" uid="uid://dq07hd06agflh" path="res://assets/sprite/Square.png" id="3_vlypy"]
 

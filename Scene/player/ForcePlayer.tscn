@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtp3s6y5nj2vc"]
 
-[ext_resource type="Script" path="res://Scene/onlyPhysics/ForceController.gd" id="1_3nou8"]
+[ext_resource type="Script" uid="uid://cmr0f7554fm7t" path="res://Scene/onlyPhysics/ForceController.gd" id="1_3nou8"]
 [ext_resource type="Texture2D" uid="uid://cxxiaopyyltmw" path="res://assets/player/sprite_player.png" id="1_06mwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjaj2"]

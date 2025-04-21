@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1rxwp216chei"]
 
 [ext_resource type="PackedScene" uid="uid://dtp3s6y5nj2vc" path="res://Scene/player/ForcePlayer.tscn" id="1_5hjqu"]
-[ext_resource type="Script" path="res://script/Physics/Physics_Handlers.gd" id="1_nxw30"]
+[ext_resource type="Script" uid="uid://ceyfqkx8jmqe6" path="res://script/Physics/Physics_Handlers.gd" id="1_nxw30"]
 
 [sub_resource type="Curve2D" id="Curve2D_inefc"]
 _data = {

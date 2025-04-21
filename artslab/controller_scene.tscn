@@ -1,11 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmhx0w651v6me"]
+[gd_scene load_steps=30 format=3 uid="uid://dmhx0w651v6me"]
 
 [ext_resource type="Script" uid="uid://d08x0rgjfuom" path="res://artslab/scripts/Jugador.gd" id="1_76xs3"]
 [ext_resource type="Texture2D" uid="uid://ds2k2iiby32wn" path="res://assets/background/BG_WitchWitchng.png" id="1_qrd1a"]
 [ext_resource type="Texture2D" uid="uid://by573dg2ethds" path="res://assets/player/Sap_Spritesheet.png" id="2_i5jcx"]
-[ext_resource type="Script" uid="uid://d3ubem6uc1685" path="res://artslab/scripts/Line.gd" id="7_fsod2"]
-[ext_resource type="Script" uid="uid://btdtq7qsx5jf6" path="res://artslab/camera_2d.gd" id="7_lpvgp"]
-[ext_resource type="Script" uid="uid://dryqlsoih3rqk" path="res://artslab/scripts/GravityField.gd" id="8_18hss"]
+[ext_resource type="Texture2D" uid="uid://cjpn6ty4p2sgc" path="res://assets/sprite/Square.png" id="3_yxwbx"]
+[ext_resource type="Script" uid="uid://chp4cpm4e0lju" path="res://artslab/scripts/Line.gd" id="7_fsod2"]
+[ext_resource type="Script" path="res://artslab/camera_2d.gd" id="7_lpvgp"]
+[ext_resource type="Script" uid="uid://fc0t3sqof6v1" path="res://artslab/scripts/GravityField.gd" id="8_18hss"]
 [ext_resource type="FontFile" uid="uid://b8pywvoioqmeu" path="res://Fonts/Silver.ttf" id="8_hhp5s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olj3y"]
@@ -42,6 +43,28 @@ point_count = 1
 
 [sub_resource type="Gradient" id="Gradient_iypot"]
 colors = PackedColorArray(0.921569, 0.690196, 0.65098, 1, 0.988235, 1, 0.858824, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yxwbx"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n361f"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 20, 0)
+linear_accel_min = -10.0
+linear_accel_max = 10.0
+radial_accel_min = -50.0
+radial_accel_max = 50.0
+anim_speed_min = 1.0
+anim_speed_max = 1.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2to6n"]
 radius = 4.0
@@ -349,6 +372,14 @@ anim_player = NodePath("AnimationPlayer")
 line2d = NodePath("../Line2D")
 _base_acceleration = 500.0
 _friction = 220.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Jugador"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yxwbx")
+amount = 12
+texture = ExtResource("3_yxwbx")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_n361f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
 shape = SubResource("CircleShape2D_2to6n")

@@ -1,0 +1,35 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://v565snne342h"
+path="res://.godot/imported/LazyFox Pixel Font 4.ttf-b28edabdd4b9232d0d5f7adf37efd381.fontdata"
+
+[deps]
+
+source_file="res://Fonts/LazyFox Pixel Font 4.ttf"
+dest_files=["res://.godot/imported/LazyFox Pixel Font 4.ttf-b28edabdd4b9232d0d5f7adf37efd381.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

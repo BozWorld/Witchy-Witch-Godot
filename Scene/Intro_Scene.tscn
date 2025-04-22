@@ -1,5 +1,1392 @@
-[gd_scene format=3 uid="uid://0k17qfsa5o70"]
+[gd_scene load_steps=80 format=3 uid="uid://0k17qfsa5o70"]
+
+[ext_resource type="Shader" uid="uid://bnl6binlr73qo" path="res://Scene/Fullscreen_Shader.gdshader" id="1_2sauj"]
+[ext_resource type="Texture2D" uid="uid://behaky6n0nkvn" path="res://assets/UI/Intro/MaskIntro.png" id="1_vttkd"]
+[ext_resource type="Texture2D" uid="uid://cl888uqp5pcpa" path="res://assets/UI/Intro/WitchManiaLogo.png" id="2_2sauj"]
+[ext_resource type="Texture2D" uid="uid://dvy8qikx0vppw" path="res://assets/UI/Menu_Principal/FrontFoliages.png" id="2_cru0a"]
+[ext_resource type="Texture2D" uid="uid://dcwrr53tr60uv" path="res://assets/UI/Menu_Principal/MAsk_Placeholdername.png" id="2_guc4g"]
+[ext_resource type="Script" uid="uid://c1bnnq2c0el54" path="res://Scene/AnimationsScript.gd" id="2_kvt8f"]
+[ext_resource type="Texture2D" uid="uid://skap5s66swbl" path="res://assets/UI/Menu_Principal/PlaceholderName.png" id="3_guc4g"]
+[ext_resource type="Shader" uid="uid://dcnvhwq5j41dl" path="res://Scene/Scrolling.gdshader" id="4_j7aju"]
+[ext_resource type="Texture2D" uid="uid://xft786uv0cbs" path="res://assets/UI/Menu_Principal/Godot Logo-export.png" id="4_tk3h6"]
+[ext_resource type="Texture2D" uid="uid://cr7r576thq6ro" path="res://assets/UI/Menu_Principal/Background.png" id="5_kvt8f"]
+[ext_resource type="FontFile" uid="uid://dj1ku6mpigfro" path="res://Fonts/LazyFox Pixel Font 3.ttf" id="5_p3ymx"]
+[ext_resource type="Texture2D" uid="uid://cbpomlnyd44r4" path="res://assets/UI/Menu_Principal/Moon.png" id="6_wdqjo"]
+[ext_resource type="Texture2D" uid="uid://br5tbv5y4r3b1" path="res://assets/UI/Menu_Principal/Underforest.png" id="7_nwd0n"]
+[ext_resource type="Texture2D" uid="uid://cmdjk1c7i8lg0" path="res://assets/UI/Menu_Principal/Tree_bg03.png" id="8_bog0x"]
+[ext_resource type="FontFile" uid="uid://botb5m6mjae28" path="res://Fonts/LazyFox Pixel Font 6.ttf" id="8_tk3h6"]
+[ext_resource type="Texture2D" uid="uid://bre5a46xpd6hm" path="res://assets/UI/Menu_Principal/Treetrunks_bg02.png" id="9_cru0a"]
+[ext_resource type="Texture2D" uid="uid://dpdi7hy0qkugs" path="res://assets/UI/Menu_Principal/Tree_bg02.png" id="10_guc4g"]
+[ext_resource type="Texture2D" uid="uid://dv05hvmaaabs6" path="res://assets/UI/Menu_Principal/Trees-Background.png" id="11_tk3h6"]
+[ext_resource type="Texture2D" uid="uid://kfxy417lhkny" path="res://assets/UI/Menu_Principal/Scanp.png" id="12_p3ymx"]
+[ext_resource type="Texture2D" uid="uid://bo7bwuft0sag3" path="res://assets/UI/Menu_Principal/Trees_foreground.png" id="13_d2ihv"]
+[ext_resource type="Script" uid="uid://oq5a4exetwaq" path="res://Scene/Buttontest.gd" id="22_d2ihv"]
+
+[sub_resource type="Animation" id="Animation_kvt8f"]
+resource_name = "Init"
+length = 20.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer_MenuPrincipal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"logo"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer_MenuPrincipal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"_process"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/GodotLogo-export:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/MadeWith:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/Godot:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer_MenuPrincipal/Top (Pi)/Fullscreen_color:material:shader_parameter/Set_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.407843, 0.227451, 0.407843, 1), Color(0.407843, 0.227451, 0.407843, 1), Color(0.407843, 0.227451, 0.407843, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer_MenuPrincipal/FoliageLayer/FrontFoliages:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 7.01503),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(27790, 540), Vector2(-6023, 540)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer_MenuPrincipal")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlaceholderAnim"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/AnimatedSprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 7.9, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/AnimatedMaskPlaceholder:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3.9, 4, 6.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AnimationPlayer_MenuPrincipal")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(5.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlaceholderAnimEnd"
+}]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(5.99, 6.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(5.99, 7.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer3:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(5.99, 7.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer4:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(5.99, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer/Button:text")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(6.8, 6.9, 7, 7.1, 7.2, 10.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["S", "St", "Sta", "Star", "Start", "Start"]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer2/Button:text")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 10.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["O", "Op", "Opt", "Opti", "Optio", "Option", "Options", "Options"]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer3/Button:text")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 10.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["C", "Cr", "Cre", "Cred", "Credi", "Credit", "Credits", "Credits"]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer4/Button:text")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(8, 8.1, 8.2, 8.3, 10.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Q", "Qu", "Qui", "Quit", "Quit"]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/MarginContainer/Label:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(8.3, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/MarginContainer/Label:text")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(8.5, 8.6, 8.7, 8.8, 8.9, 9, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["H", "HI", "HIG", "HIGH", "HIGHE", "HIGHES", "HIGHEST", "HIGHEST ", "HIGHEST S", "HIGHEST SC", "HIGHEST SCO", "HIGHEST SCOR", "HIGHEST SCORE", "HIGHEST SCORES", "HIGHEST SCORES"]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer3/Pseudos_Kermit:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(5.23333, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer4/Pseudos_Kermit:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(5.23333, 11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer5/Pseudos_Kermit:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(5.23333, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer4/Score_Kermit:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(5.23333, 11.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer3/Score_Kermit:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(5.23333, 10.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer2/Score_Kermit:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(5.23333, 9.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_d2ihv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/GodotLogo-export:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/MadeWith:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/Godot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer_MenuPrincipal/Top (Pi)/Fullscreen_color:material:shader_parameter/Set_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.176471, 0.0862745, 0.172549, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer_MenuPrincipal/FoliageLayer/FrontFoliages:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6000, 540)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/AnimatedSprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/AnimatedMaskPlaceholder:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer3:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer4:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer/Button:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Start"]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer2/Button:text")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Options"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer3/Button:text")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Credits"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer4/Button:text")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Quit"]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/MarginContainer/Label:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/MarginContainer/Label:text")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIGHEST SCORES"]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer3/Pseudos_Kermit:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer4/Pseudos_Kermit:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer5/Pseudos_Kermit:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer4/Score_Kermit:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer3/Score_Kermit:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer2/Score_Kermit:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdqjo"]
+_data = {
+&"Init": SubResource("Animation_kvt8f"),
+&"RESET": SubResource("Animation_d2ihv")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk3h6"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3ymx"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2ihv"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghcnk"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svvul"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tnwx"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dqea"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s7t7"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(1600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8clka"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(1800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lqir"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(2000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuk0l"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(2200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqno6"]
+atlas = ExtResource("2_guc4g")
+region = Rect2(2400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cggf"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tk3h6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_p3ymx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_d2ihv")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ghcnk")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_svvul")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8tnwx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4dqea")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3s7t7")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8clka")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7lqir")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_yuk0l")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_iqno6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63qr3"]
+resource_local_to_scene = true
+shader = ExtResource("1_2sauj")
+shader_parameter/Set_color = Color(0.176471, 0.0862745, 0.172549, 1)
+shader_parameter/Opacity = 1.0
+shader_parameter/speed = Vector2(0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8557i"]
+size = Vector2(1920, 1080)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_llun7"]
+resource_local_to_scene = true
+shader = ExtResource("1_2sauj")
+shader_parameter/Set_color = Color(0, 0, 0, 1)
+shader_parameter/Opacity = 1.0
+shader_parameter/speed = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ghcnk"]
+resource_local_to_scene = true
+shader = ExtResource("4_j7aju")
+shader_parameter/speed = Vector2(0.1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_svvul"]
+resource_local_to_scene = true
+shader = ExtResource("4_j7aju")
+shader_parameter/speed = Vector2(0.2, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8tnwx"]
+shader = ExtResource("4_j7aju")
+shader_parameter/speed = Vector2(0.3, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dqea"]
+resource_local_to_scene = true
+shader = ExtResource("4_j7aju")
+shader_parameter/speed = Vector2(0.3, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3s7t7"]
+resource_local_to_scene = true
+shader = ExtResource("4_j7aju")
+shader_parameter/speed = Vector2(0.4, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6g1b"]
+atlas = ExtResource("12_p3ymx")
+region = Rect2(0, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je2gt"]
+atlas = ExtResource("12_p3ymx")
+region = Rect2(192, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb4xc"]
+atlas = ExtResource("12_p3ymx")
+region = Rect2(384, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv5ms"]
+atlas = ExtResource("12_p3ymx")
+region = Rect2(576, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q7kj"]
+atlas = ExtResource("12_p3ymx")
+region = Rect2(768, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5te2"]
+atlas = ExtResource("12_p3ymx")
+region = Rect2(960, 0, 192, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8clka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6g1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je2gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb4xc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv5ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q7kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5te2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7lqir"]
+resource_local_to_scene = true
+shader = ExtResource("4_j7aju")
+shader_parameter/speed = Vector2(0.5, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63qr3"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8557i"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llun7"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(800, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7o8p"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(1200, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqi2c"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(1600, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_421ta"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(2000, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfadv"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(2400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2g1o"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(2800, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ih2x"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(3200, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7aju"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(3600, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvt8f"]
+atlas = ExtResource("1_vttkd")
+region = Rect2(4000, 0, 400, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wdqjo"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_63qr3")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_8557i")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_llun7")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_h7o8p")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_qqi2c")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_421ta")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_pfadv")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_e2g1o")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_0ih2x")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_j7aju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvt8f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_tk3h6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghcnk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svvul"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tnwx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dqea"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3s7t7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6g1b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je2gt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb4xc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv5ms"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q7kj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2ihv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2ihv"]
+resource_local_to_scene = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk3h6"]
+bg_color = Color(0.176471, 0.0862745, 0.172549, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
 
 [node name="IntroScene" type="Node2D"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer_MenuPrincipal" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wdqjo")
+}
+autoplay = "Init"
+script = ExtResource("2_kvt8f")
+
+[node name="Powertop(clairement pas Pi)" type="CanvasLayer" parent="AnimationPlayer_MenuPrincipal"]
+layer = 21
+
+[node name="AnimatedMaskPlaceholder" type="AnimatedSprite2D" parent="AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)"]
+clip_children = 1
+position = Vector2(960, 550)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_6cggf")
+frame = 11
+frame_progress = 1.0
+
+[node name="PlaceholderName" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)/AnimatedMaskPlaceholder"]
+texture_filter = 1
+position = Vector2(0, -7.25)
+texture = ExtResource("3_guc4g")
+
+[node name="GodotLogo-export" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)"]
+position = Vector2(960, 500)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tk3h6")
+
+[node name="MadeWith" type="Label" parent="AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)"]
+texture_filter = 1
+offset_left = 464.0
+offset_top = 42.0
+offset_right = 514.0
+offset_bottom = 62.0
+scale = Vector2(20, 20)
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 8
+text = "Made with"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Godot" type="Label" parent="AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)"]
+texture_filter = 1
+offset_left = 226.0
+offset_top = 554.0
+offset_right = 276.0
+offset_bottom = 574.0
+scale = Vector2(30, 30)
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 8
+text = "Godot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FoliageLayer" type="CanvasLayer" parent="AnimationPlayer_MenuPrincipal"]
+layer = 20
+
+[node name="FrontFoliages" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/FoliageLayer"]
+position = Vector2(6000, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("2_cru0a")
+
+[node name="FrontFoliages2" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/FoliageLayer/FrontFoliages"]
+position = Vector2(-1083.3, 0)
+texture = ExtResource("2_cru0a")
+
+[node name="FrontFoliages3" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/FoliageLayer/FrontFoliages"]
+position = Vector2(-2187.8, 0)
+texture = ExtResource("2_cru0a")
+
+[node name="Top (Pi)" type="CanvasLayer" parent="AnimationPlayer_MenuPrincipal"]
+layer = 20
+
+[node name="Fullscreen_color" type="MeshInstance2D" parent="AnimationPlayer_MenuPrincipal/Top (Pi)"]
+visible = false
+material = SubResource("ShaderMaterial_63qr3")
+position = Vector2(960, 540)
+mesh = SubResource("QuadMesh_8557i")
+
+[node name="Bottom (Aussi Pi)" type="CanvasLayer" parent="AnimationPlayer_MenuPrincipal"]
+layer = -1
+
+[node name="Fullscreen_color" type="MeshInstance2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+material = SubResource("ShaderMaterial_llun7")
+position = Vector2(960, 540)
+mesh = SubResource("QuadMesh_8557i")
+
+[node name="Background" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+material = SubResource("ShaderMaterial_ghcnk")
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("5_kvt8f")
+
+[node name="Moon" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("6_wdqjo")
+flip_h = true
+
+[node name="Underforest" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("7_nwd0n")
+
+[node name="TreeBg03" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+material = SubResource("ShaderMaterial_svvul")
+position = Vector2(960, 536)
+scale = Vector2(10, 10)
+texture = ExtResource("8_bog0x")
+
+[node name="TreetrunksBg02" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+material = SubResource("ShaderMaterial_8tnwx")
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("9_cru0a")
+
+[node name="TreeBg02" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+material = SubResource("ShaderMaterial_4dqea")
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("10_guc4g")
+
+[node name="Trees-background" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+material = SubResource("ShaderMaterial_3s7t7")
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("11_tk3h6")
+
+[node name="Scanp" type="AnimatedSprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+position = Vector2(476, 524)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_8clka")
+frame_progress = 0.70567
+speed_scale = 2.0
+
+[node name="TreesForeground" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+material = SubResource("ShaderMaterial_7lqir")
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("13_d2ihv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+clip_children = 1
+position = Vector2(1288, 129)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_wdqjo")
+frame = 10
+frame_progress = 1.0
+
+[node name="Logo" type="Sprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/AnimatedSprite2D"]
+position = Vector2(13.75, 16.75)
+texture = ExtResource("2_2sauj")
+
+[node name="Control" type="Control" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -135.0
+offset_right = -90.0
+offset_bottom = 365.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 500.0
+
+[node name="MarginContainer" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("8_tk3h6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_svvul")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8tnwx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4dqea")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3s7t7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6g1b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_je2gt")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_eb4xc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv5ms")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1q7kj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2ihv")
+text = "Start"
+alignment = 0
+script = ExtResource("22_d2ihv")
+
+[node name="MarginContainer2" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer2"]
+material = SubResource("ShaderMaterial_d2ihv")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("8_tk3h6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_svvul")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8tnwx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4dqea")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3s7t7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6g1b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_je2gt")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_eb4xc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv5ms")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1q7kj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2ihv")
+text = "Options"
+alignment = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer3"]
+material = SubResource("ShaderMaterial_d2ihv")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("8_tk3h6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_svvul")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8tnwx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4dqea")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3s7t7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6g1b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_je2gt")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_eb4xc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv5ms")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1q7kj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2ihv")
+text = "Credits"
+alignment = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer4"]
+material = SubResource("ShaderMaterial_d2ihv")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("8_tk3h6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_svvul")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8tnwx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4dqea")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3s7t7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6g1b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_je2gt")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_eb4xc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jv5ms")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1q7kj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2ihv")
+text = "Quit"
+alignment = 0
+
+[node name="Control2" type="Control" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = 656.0
+offset_right = 289.0
+offset_bottom = 1156.0
+
+[node name="PanelContainer" type="PanelContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2"]
+layout_mode = 0
+offset_left = 43.0
+offset_right = 427.0
+offset_bottom = 385.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tk3h6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 40
+text = "HIGHEST SCORES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Pseudos" type="VBoxContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos"]
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Pseudos_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 30
+text = "Kermit"
+
+[node name="MarginContainer4" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos"]
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Pseudos_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 30
+text = "Mareep"
+
+[node name="MarginContainer5" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos"]
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Pseudos_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 30
+text = "Mudkip"
+
+[node name="Scores" type="VBoxContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores"]
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Score_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 30
+text = "250 pts"
+
+[node name="MarginContainer3" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores"]
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Score_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 30
+text = "246 pts"
+
+[node name="MarginContainer4" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores"]
+layout_mode = 2
+theme = SubResource("Theme_tk3h6")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Score_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_fonts/font = ExtResource("5_p3ymx")
+theme_override_font_sizes/font_size = 30
+text = "216 pts"
+
+[connection signal="button_down" from="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer/Button" to="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer/Button" method="_on_button_down"]

@@ -14,6 +14,9 @@ config/name="Witch-Mania"
 config/description="Space to learn about physics behavior, mechanics, and 2D calculations."
 run/main_scene="uid://n388y20a8y2r"
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/bg_color=Color(0.407843, 0.227451, 0.407843, 1)
+boot_splash/show_image=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]

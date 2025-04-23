@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://0k17qfsa5o70"]
+[gd_scene load_steps=84 format=3 uid="uid://0k17qfsa5o70"]
 
 [ext_resource type="Shader" uid="uid://bnl6binlr73qo" path="res://Scene/Fullscreen_Shader.gdshader" id="1_2sauj"]
 [ext_resource type="Texture2D" uid="uid://behaky6n0nkvn" path="res://assets/UI/Intro/MaskIntro.png" id="1_vttkd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://skap5s66swbl" path="res://assets/UI/Menu_Principal/PlaceholderName.png" id="3_guc4g"]
 [ext_resource type="Shader" uid="uid://dcnvhwq5j41dl" path="res://Scene/Scrolling.gdshader" id="4_j7aju"]
 [ext_resource type="Texture2D" uid="uid://xft786uv0cbs" path="res://assets/UI/Menu_Principal/Godot Logo-export.png" id="4_tk3h6"]
+[ext_resource type="Shader" uid="uid://df573ncs4b4yg" path="res://Scene/PixelPerfectFont.gdshader" id="5_d2ihv"]
 [ext_resource type="Texture2D" uid="uid://cr7r576thq6ro" path="res://assets/UI/Menu_Principal/Background.png" id="5_kvt8f"]
 [ext_resource type="FontFile" uid="uid://dj1ku6mpigfro" path="res://Fonts/LazyFox Pixel Font 3.ttf" id="5_p3ymx"]
 [ext_resource type="Texture2D" uid="uid://cbpomlnyd44r4" path="res://assets/UI/Menu_Principal/Moon.png" id="6_wdqjo"]
@@ -735,6 +736,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_je2gt"]
+shader = ExtResource("5_d2ihv")
+shader_parameter/threshold = 0.5
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_63qr3"]
 resource_local_to_scene = true
 shader = ExtResource("1_2sauj")
@@ -918,6 +923,8 @@ animations = [{
 
 [sub_resource type="Theme" id="Theme_tk3h6"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6g1b"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghcnk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -952,13 +959,18 @@ draw_center = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2ihv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2ihv"]
-resource_local_to_scene = true
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk3h6"]
 bg_color = Color(0.176471, 0.0862745, 0.172549, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb4xc"]
+shader = ExtResource("5_d2ihv")
+shader_parameter/threshold = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2ihv"]
+shader = ExtResource("5_d2ihv")
+shader_parameter/threshold = 0.5
 
 [node name="IntroScene" type="Node2D"]
 
@@ -992,6 +1004,7 @@ texture = ExtResource("4_tk3h6")
 
 [node name="MadeWith" type="Label" parent="AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_je2gt")
 offset_left = 464.0
 offset_top = 42.0
 offset_right = 514.0
@@ -1006,6 +1019,7 @@ vertical_alignment = 1
 
 [node name="Godot" type="Label" parent="AnimationPlayer_MenuPrincipal/Powertop(clairement pas Pi)"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_je2gt")
 offset_left = 226.0
 offset_top = 554.0
 offset_right = 276.0
@@ -1093,7 +1107,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("11_tk3h6")
 
 [node name="Scanp" type="AnimatedSprite2D" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)"]
-position = Vector2(476, 524)
+position = Vector2(685, 544)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_8clka")
 frame_progress = 0.70567
@@ -1146,8 +1160,12 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer"]
+material = SubResource("ShaderMaterial_w6g1b")
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.772549, 0.733333, 1)
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_colors/font_focus_color = Color(1, 0.772549, 0.733333, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.6, 0.631373, 1)
 theme_override_fonts/font = ExtResource("8_tk3h6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
@@ -1175,9 +1193,12 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer2"]
-material = SubResource("ShaderMaterial_d2ihv")
+material = SubResource("ShaderMaterial_w6g1b")
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.772549, 0.733333, 1)
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_colors/font_focus_color = Color(1, 0.772549, 0.733333, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.6, 0.631373, 1)
 theme_override_fonts/font = ExtResource("8_tk3h6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
@@ -1204,9 +1225,12 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer3"]
-material = SubResource("ShaderMaterial_d2ihv")
+material = SubResource("ShaderMaterial_w6g1b")
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.772549, 0.733333, 1)
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_colors/font_focus_color = Color(1, 0.772549, 0.733333, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.6, 0.631373, 1)
 theme_override_fonts/font = ExtResource("8_tk3h6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
@@ -1233,9 +1257,12 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Button" type="Button" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer4"]
-material = SubResource("ShaderMaterial_d2ihv")
+material = SubResource("ShaderMaterial_w6g1b")
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.772549, 0.733333, 1)
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
+theme_override_colors/font_focus_color = Color(1, 0.772549, 0.733333, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.6, 0.631373, 1)
 theme_override_fonts/font = ExtResource("8_tk3h6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_ghcnk")
@@ -1280,6 +1307,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="Label" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/MarginContainer"]
 visible = false
+material = SubResource("ShaderMaterial_eb4xc")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
 theme_override_fonts/font = ExtResource("5_p3ymx")
@@ -1304,10 +1332,11 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Pseudos_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer3"]
+material = SubResource("ShaderMaterial_d2ihv")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
 theme_override_fonts/font = ExtResource("5_p3ymx")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "Kermit"
 
 [node name="MarginContainer4" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos"]
@@ -1319,10 +1348,11 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Pseudos_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer4"]
+material = SubResource("ShaderMaterial_d2ihv")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
 theme_override_fonts/font = ExtResource("5_p3ymx")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "Mareep"
 
 [node name="MarginContainer5" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos"]
@@ -1334,10 +1364,11 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Pseudos_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Pseudos/MarginContainer5"]
+material = SubResource("ShaderMaterial_d2ihv")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
 theme_override_fonts/font = ExtResource("5_p3ymx")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "Mudkip"
 
 [node name="Scores" type="VBoxContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer"]
@@ -1353,10 +1384,11 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Score_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer2"]
+material = SubResource("ShaderMaterial_d2ihv")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
 theme_override_fonts/font = ExtResource("5_p3ymx")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "250 pts"
 
 [node name="MarginContainer3" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores"]
@@ -1368,10 +1400,11 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Score_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer3"]
+material = SubResource("ShaderMaterial_d2ihv")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
 theme_override_fonts/font = ExtResource("5_p3ymx")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "246 pts"
 
 [node name="MarginContainer4" type="MarginContainer" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores"]
@@ -1383,10 +1416,11 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Score_Kermit" type="Label" parent="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control2/PanelContainer/VBoxContainer/HBoxContainer/Scores/MarginContainer4"]
+material = SubResource("ShaderMaterial_d2ihv")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.858824, 1)
 theme_override_fonts/font = ExtResource("5_p3ymx")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "216 pts"
 
 [connection signal="button_down" from="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer/Button" to="AnimationPlayer_MenuPrincipal/Bottom (Aussi Pi)/Control/VBoxContainer/MarginContainer/Button" method="_on_button_down"]

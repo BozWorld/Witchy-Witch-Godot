@@ -42,7 +42,8 @@ _data = [Vector2(0.457286, 0.24253), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="Gradient" id="Gradient_iypot"]
-colors = PackedColorArray(0.921569, 0.690196, 0.65098, 1, 0.988235, 1, 0.858824, 1)
+offsets = PackedFloat32Array(0, 0.138138, 1)
+colors = PackedColorArray(0.921569, 0.690196, 0.65098, 0, 0.930578, 0.732062, 0.679067, 1, 0.988235, 1, 0.858824, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yxwbx"]
 particles_animation = true

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl888uqp5pcpa"
-path="res://.godot/imported/WitchManiaLogo.png-dd6a1af63ebb69660c7b0b9f1cd7ee46.ctex"
+path="res://.godot/imported/WitchManiaLogo.png-7cb04ffc52d45800e7b5ba5d7d71ac06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/Intro/WitchManiaLogo.png"
-dest_files=["res://.godot/imported/WitchManiaLogo.png-dd6a1af63ebb69660c7b0b9f1cd7ee46.ctex"]
+source_file="res://assets/UI/Menu_Principal/WitchManiaLogo.png"
+dest_files=["res://.godot/imported/WitchManiaLogo.png-7cb04ffc52d45800e7b5ba5d7d71ac06.ctex"]
 
 [params]
 

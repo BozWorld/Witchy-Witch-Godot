@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh1p5o7226mb"]
+
+[ext_resource type="Texture2D" uid="uid://by573dg2ethds" path="res://assets/player/Sap_Spritesheet.png" id="1_f4ior"]
+
+[sub_resource type="GDScript" id="GDScript_f4ior"]
+script/source = "extends Sprite2D
+func _ready():
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, \"modulate\", Color.TRANSPARENT, 1 )
+	tween.tween_callback(self.queue_free)
+"
+
+[node name="DashGhost" type="Sprite2D"]
+texture = ExtResource("1_f4ior")
+hframes = 5
+vframes = 4
+script = SubResource("GDScript_f4ior")

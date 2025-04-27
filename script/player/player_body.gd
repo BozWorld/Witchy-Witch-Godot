@@ -24,4 +24,3 @@ func _process(delta):
 			hit_force = max_hit_force
 	else : 
 		hit_force = initial_hit_force
-

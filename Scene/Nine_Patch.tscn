@@ -2,20 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dr8xhptv4loeu" path="res://assets/UI/Interface/9Patch.png" id="1_p02el"]
 
-[sub_resource type="Animation" id="Animation_xtm2p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(593, 307)]
-}
+[sub_resource type="Animation" id="Animation_n8cxr"]
+resource_name = "Close"
+step = 0.25
 
 [sub_resource type="Animation" id="Animation_p02el"]
 resource_name = "Idle_WithPause"
@@ -53,13 +42,24 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 20), Vector2(0, 10), Vector2(0, 0), Vector2(0, -10), Vector2(0, -20), Vector2(0, -10)]
 }
 
-[sub_resource type="Animation" id="Animation_n8cxr"]
-resource_name = "Close"
-step = 0.25
-
 [sub_resource type="Animation" id="Animation_2e7uy"]
 resource_name = "Open"
 step = 0.25
+
+[sub_resource type="Animation" id="Animation_xtm2p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(593, 307)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ryii"]
 _data = {

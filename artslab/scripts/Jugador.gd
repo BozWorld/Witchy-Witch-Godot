@@ -40,6 +40,16 @@ var _dash_fillspeed: float = 2.0
 
 @export var _dash_base_strength: float = 600.0
 var _dash_strength: float = 0.0
+
+	#region Dashgost 
+	#Sorry for nestling a region in another
+
+var Dashghost_scene = preload("res://Scene/player/DashGhost.tscn")
+var DashingYoungLad: Timer = Timer.new()
+var GhostTimer: Timer = Timer.new()
+
+	#endregion
+
 #endregion
 
 #region external forces
@@ -154,11 +164,48 @@ func dash():
 		return
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		_dash_direction = (get_global_mouse_position() - global_position).normalized()
+		starttimerdashghost()
 	else:
 		_dash_direction = _last_direction.normalized()
 	_momentum = _dash_direction * _dash_strength
 	_dash_stacks -= 1
 	_dash_cd = _dash_max_cd
+	
+func starttimerdashghost():
+
+	# Add it to the scene as a child of this node
+	add_child(DashingYoungLad)
+	add_child(GhostTimer)
+	# Configure the timer
+	GhostTimer.wait_time = 0.05 # How long we're waiting
+	GhostTimer.one_shot = false # trigger once or multiple times
+	DashingYoungLad.wait_time = 0.5 # How long we're waiting
+	DashingYoungLad.one_shot = true # trigger once or multiple times
+	# Connect its timeout signal to a function we want called
+	# Start the timer
+	DashingYoungLad.start()
+	GhostTimer.start()
+	GhostTimer.timeout.connect(GhostTimer_on_timeout)
+	DashingYoungLad.timeout.connect(DashingYoungLad_on_timeout)
+	pass
+
+func DashingYoungLad_on_timeout():
+	GhostTimer.stop()
+	pass
+
+func GhostTimer_on_timeout():
+	dashghost()
+	pass
+
+func dashghost():
+
+	var instance = Dashghost_scene.instantiate()
+	get_parent().add_child(instance)
+	instance.global_position = $MainSprite2D.global_position
+	instance.frame = $MainSprite2D.frame
+	instance.flip_h = $MainSprite2D.flip_h
+		
+	pass
 
 func cooldowns(delta: float):
 	if _dash_cd > 0:

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc51qkwpikrib"]
+
+[ext_resource type="Texture2D" uid="uid://by573dg2ethds" path="res://assets/player/Sap_Spritesheet.png" id="1_7r3yw"]
+[ext_resource type="Script" uid="uid://dsivwhwfiac4p" path="res://Scene/player/dash_ghost.gd" id="2_5s8it"]
+
+[node name="DashGhost" type="Sprite2D"]
+texture = ExtResource("1_7r3yw")
+hframes = 5
+vframes = 4
+script = ExtResource("2_5s8it")

@@ -5,6 +5,7 @@
 
 [node name="DashGhost" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.784314)
+z_index = 1
 texture = ExtResource("1_7r3yw")
 hframes = 5
 vframes = 4

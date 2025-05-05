@@ -184,13 +184,25 @@ func starttimerdashghost():
 	# Connect its timeout signal to a function we want called
 	# Start the timer
 	DashingYoungLad.start()
+	$Speedline.amount_ratio = 1.0
+	$MainSprite2D.material.set_shader_parameter("flash_modifier",0.8)
 	GhostTimer.start()
 	GhostTimer.timeout.connect(GhostTimer_on_timeout)
 	DashingYoungLad.timeout.connect(DashingYoungLad_on_timeout)
+	
 	pass
 
 func DashingYoungLad_on_timeout():
 	GhostTimer.stop()
+	$Speedline.amount_ratio = 0
+	var tween = get_tree().create_tween();
+	tween.tween_method(
+  	func(value): $MainSprite2D.material.set_shader_parameter("flash_modifier", value),  
+ 	 0.8,   # Start value
+ 	 0,  	# End value
+ 	 0.1    # Duration
+	);
+	
 	pass
 
 func GhostTimer_on_timeout():

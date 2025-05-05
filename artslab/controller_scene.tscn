@@ -1,9 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://dmhx0w651v6me"]
+[gd_scene load_steps=36 format=3 uid="uid://dmhx0w651v6me"]
 
 [ext_resource type="Script" uid="uid://d08x0rgjfuom" path="res://artslab/scripts/Jugador.gd" id="1_76xs3"]
 [ext_resource type="Texture2D" uid="uid://ds2k2iiby32wn" path="res://assets/background/BG_WitchWitchng.png" id="1_qrd1a"]
 [ext_resource type="Texture2D" uid="uid://by573dg2ethds" path="res://assets/player/Sap_Spritesheet.png" id="2_i5jcx"]
+[ext_resource type="Shader" uid="uid://bkpigc473pso2" path="res://artslab/JugadorSpriteShader.gdshader" id="3_lpvgp"]
 [ext_resource type="Texture2D" uid="uid://cjpn6ty4p2sgc" path="res://assets/sprite/Square.png" id="3_yxwbx"]
+[ext_resource type="Texture2D" uid="uid://cidvash2ytfrl" path="res://assets/sprite/Speedline.png" id="6_n361f"]
 [ext_resource type="Script" uid="uid://chp4cpm4e0lju" path="res://artslab/scripts/Line.gd" id="7_fsod2"]
 [ext_resource type="Script" path="res://artslab/camera_2d.gd" id="7_lpvgp"]
 [ext_resource type="Script" uid="uid://fc0t3sqof6v1" path="res://artslab/scripts/GravityField.gd" id="8_18hss"]
@@ -45,6 +47,8 @@ point_count = 1
 offsets = PackedFloat32Array(0, 0.159159, 1)
 colors = PackedColorArray(0.921569, 0.690196, 0.65098, 0, 0.921569, 0.690196, 0.65098, 1, 0.988235, 1, 0.858824, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcdj3"]
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yxwbx"]
 particles_animation = true
 particles_anim_h_frames = 5
@@ -69,6 +73,11 @@ anim_speed_max = 1.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2to6n"]
 radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpvgp"]
+shader = ExtResource("3_lpvgp")
+shader_parameter/flash_color = Color(0.945098, 0.905882, 0.760784, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="Animation" id="Animation_83v3j"]
 resource_name = "East"
@@ -318,6 +327,26 @@ _data = {
 &"West": SubResource("Animation_x8xyd")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lpvgp"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yxwbx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 5, 1)
+direction = Vector3(0, 0, 0)
+spread = 20.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+anim_speed_min = 1.0
+anim_speed_max = 5.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_cdy41"]
 line_spacing = -9.0
 font = ExtResource("8_hhp5s")
@@ -364,6 +393,7 @@ script = ExtResource("7_fsod2")
 
 [node name="Jugador" type="CharacterBody2D" parent="." node_paths=PackedStringArray("debug", "anim_player", "line2d")]
 physics_interpolation_mode = 2
+material = SubResource("ShaderMaterial_tcdj3")
 motion_mode = 1
 wall_min_slide_angle = 0.488692
 floor_constant_speed = true
@@ -386,9 +416,11 @@ process_material = SubResource("ParticleProcessMaterial_n361f")
 shape = SubResource("CircleShape2D_2to6n")
 
 [node name="MainSprite2D" type="Sprite2D" parent="Jugador"]
+z_index = 4
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(-1, -3)
+material = SubResource("ShaderMaterial_lpvgp")
+position = Vector2(0, -2)
 texture = ExtResource("2_i5jcx")
 flip_h = true
 hframes = 5
@@ -399,6 +431,17 @@ frame = 2
 libraries = {
 &"": SubResource("AnimationLibrary_u2jn1")
 }
+
+[node name="Speedline" type="GPUParticles2D" parent="Jugador"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_lpvgp")
+position = Vector2(0, -2)
+amount = 20
+amount_ratio = 0.0
+texture = ExtResource("6_n361f")
+lifetime = 0.7
+preprocess = 1.0
+process_material = SubResource("ParticleProcessMaterial_yxwbx")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 physics_interpolation_mode = 1

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dsivwhwfiac4p" path="res://Scene/player/dash_ghost.gd" id="2_5s8it"]
 
 [node name="DashGhost" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.784314)
 texture = ExtResource("1_7r3yw")
 hframes = 5
 vframes = 4

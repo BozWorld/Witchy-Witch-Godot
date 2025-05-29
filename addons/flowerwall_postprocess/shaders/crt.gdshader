@@ -2,16 +2,16 @@ shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 uniform bool enable_grain = true;
-uniform bool enable_curving = true;
+uniform bool enable_curving = false;
 uniform bool enable_scanlines = true;
 uniform bool enable_chromatic_aberration = true;
 uniform bool enable_rgb_grid = true;
 uniform bool enable_vhs_wiggle = true;
-uniform bool enable_vignette = true;
-uniform float brightness_multiplier:hint_range(0.7,2.0, 0.01) = 1.2;
+uniform bool enable_vignette = false;
+uniform float brightness_multiplier:hint_range(1.0,1.2, 0.05) = 1.05;
 
 group_uniforms grain_settings;
-uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.3;
+uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.25;
 
 group_uniforms curving_settings;
 uniform float curve_power: hint_range(1.0, 1.05, 0.005) =1.02;
@@ -26,22 +26,22 @@ uniform float scanline_opacity: hint_range(0, 1, 0.05) = 0.45;
 uniform float scanline_thickness: hint_range(0, 10, 1.0) = 3;
 
 group_uniforms chromatic_aberration_settings;
-uniform float chromatic_aberration_strength: hint_range(0.0, 10.0, 1.0) = 6.0;
+uniform float chromatic_aberration_strength: hint_range(0.0, 10.0, 1.0) = 1.0;
 
 
 group_uniforms vhs_wiggle_settings;
 uniform sampler2D noise_texture: filter_linear_mipmap, repeat_enable;
-uniform float wiggle:hint_range(0.0, 0.05, 0.001) = 0.001;
+uniform float wiggle:hint_range(0.0, 0.05, 0.001) = 0.002;
 
-vec2 distort(vec2 p) 
+vec2 distort(vec2 p)
 {
 	float angle = p.y / p.x;
 	float theta = atan(p.y,p.x);
 	float radius = pow(length(p), curve_power);
-	
+
 	p.x = radius * cos(theta);
 	p.y = radius * sin(theta);
-	
+
 	return 0.5 * (p + vec2(1.0,1.0));
 }
 
@@ -57,13 +57,13 @@ float v2random(vec2 uv) {
 void fragment()
 {
 	vec2 xy = SCREEN_UV;
-	
+
 	if(enable_vhs_wiggle)
 	{
 		xy.x += (v2random(vec2(xy.y / 10.0, TIME / 10.0) / 1.0) - 0.5) * wiggle *0.1;
 		xy.x += (v2random(vec2(xy.y, TIME * 10.0)) - 0.5) * wiggle * 0.1;
 	}
-	
+
 	if(enable_curving)
 	{
 		xy *= 2.0;
@@ -71,9 +71,9 @@ void fragment()
 		xy.y -= 1.0;
 		xy = distort(xy);
 	}
-	
+
 	vec4 color = texture(screen_texture, xy);
-	
+
 	if(enable_chromatic_aberration)
 	{
 		float r = texture(screen_texture, xy + vec2(SCREEN_PIXEL_SIZE*vec2(chromatic_aberration_strength, 0.0)), 0.0).r;
@@ -81,10 +81,10 @@ void fragment()
 		float b = texture(screen_texture, xy + vec2(SCREEN_PIXEL_SIZE*vec2(-chromatic_aberration_strength, 0.0)), 0.0).b;
 		color.rgb = vec3(r, g, b);
 	}
-	
+
 	if(enable_grain)
 		color.rgb = mix(color.rgb ,vec3(0.0), filmGrainNoise(TIME, SCREEN_UV) * grain_strength);
-	
+
 	if(enable_rgb_grid)
 	{
 		float r;
@@ -107,7 +107,7 @@ void fragment()
 		color.rgb *= mask;
 	}
 	color.rgb *= brightness_multiplier;
-	
+
 	if(enable_scanlines)
 	{
 		float scanline = mod(float(FRAGCOORD.y), scanlines_interval); // check which pixel we are in a row of X
@@ -115,15 +115,15 @@ void fragment()
 		scanline *= scanline_opacity;
 		color.rgb *= 1.- scanline;
 	}
-	
+
 	if(enable_vignette)
 	{
 		vec2 uv = SCREEN_UV;
 		uv *=  1.0 - uv.yx;
-		float vig = uv.x*uv.y / vignette_size * 1000.0; 
+		float vig = uv.x*uv.y / vignette_size * 1000.0;
 		vig = pow(vig, 1.0/vignette_smoothness);
 		color.rgb -= 1.0-(clamp(vig,0,1));
 	}
-	
+
 	COLOR = color;
 }

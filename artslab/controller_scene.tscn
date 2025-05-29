@@ -6,9 +6,9 @@
 [ext_resource type="Shader" uid="uid://bkpigc473pso2" path="res://artslab/JugadorSpriteShader.gdshader" id="3_lpvgp"]
 [ext_resource type="Texture2D" uid="uid://cjpn6ty4p2sgc" path="res://assets/sprite/Square.png" id="3_yxwbx"]
 [ext_resource type="Texture2D" uid="uid://cidvash2ytfrl" path="res://assets/sprite/Speedline.png" id="6_n361f"]
-[ext_resource type="Script" uid="uid://chp4cpm4e0lju" path="res://artslab/scripts/Line.gd" id="7_fsod2"]
-[ext_resource type="Script" path="res://artslab/camera_2d.gd" id="7_lpvgp"]
-[ext_resource type="Script" uid="uid://fc0t3sqof6v1" path="res://artslab/scripts/GravityField.gd" id="8_18hss"]
+[ext_resource type="Script" uid="uid://d3ubem6uc1685" path="res://artslab/scripts/Line.gd" id="7_fsod2"]
+[ext_resource type="Script" uid="uid://btdtq7qsx5jf6" path="res://artslab/camera_2d.gd" id="7_lpvgp"]
+[ext_resource type="Script" uid="uid://dryqlsoih3rqk" path="res://artslab/scripts/GravityField.gd" id="8_18hss"]
 [ext_resource type="FontFile" uid="uid://b8pywvoioqmeu" path="res://Fonts/Silver.ttf" id="8_hhp5s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olj3y"]

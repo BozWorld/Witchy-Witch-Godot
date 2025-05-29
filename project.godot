@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Singleton="*res://subpixel/Scripts/Singleton.gd"
+flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 
 [display]
 
@@ -31,6 +32,10 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")
 
 [input]
 

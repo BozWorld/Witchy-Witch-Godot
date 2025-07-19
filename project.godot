@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Witch-Mania"
 config/description="Space to learn about physics behavior, mechanics, and 2D calculations."
-run/main_scene="uid://n388y20a8y2r"
+run/main_scene="uid://dmhx0w651v6me"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0.407843, 0.227451, 0.407843, 1)
 boot_splash/show_image=false
@@ -21,17 +21,20 @@ config/icon="uid://xft786uv0cbs"
 
 [autoload]
 
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Singleton="*res://subpixel/Scripts/Singleton.gd"
 flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=360
+window/size/viewport_height=240
+window/size/mode=2
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [editor_plugins]
 
@@ -75,9 +78,15 @@ dash={
 
 2d_physics/layer_1="player"
 
+[physics]
+
+common/physics_interpolation=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
+textures/vram_compression/import_etc2_astc=true
 textures/default_filters/use_nearest_mipmap_filter=true
 environment/defaults/default_clear_color=Color(0.850031, 0.855439, 1, 1)
 

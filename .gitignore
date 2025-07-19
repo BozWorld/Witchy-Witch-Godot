@@ -14,6 +14,8 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+android/
+
 addons/AsepriteWizard/aseprite/aseprite.gd
 
 addons/AsepriteWizard/aseprite/file_exporter.gd
